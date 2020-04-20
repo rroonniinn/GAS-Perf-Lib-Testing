@@ -1,27 +1,23 @@
-# PRV.016 | GAS Perf. Exp | E03
-## Test: 	Zapis danych do arkusza (cały zakres)
+# GAS Perf. Exp | Template testu
+## Template testu performance funkcji GAS
 
-#### Kod: Z03
+#### Struktura - plik config:
+**Plik config** - wszystkie ustawienia struktury eksperymentu. Każdy element jest opisany w JSDocs. Kluczowe są 3 wymiary:
 
-#### Cel
-Poznanie czasów zapisu danych dla:
-1. Różnych struktur arkuszy (internal, external, cache)
-2. Różnych wielkości arkuszy (zestawu danych)"
+- **Samples** - to liczba wierszy lub kolumn w testowanych arkuszach (to czy są to kolumny czy wiersze ustawia się w kroku wcześniejszym - 'structure'). Cały system jest zbudowany na bazie 8 sampli. Może być mniej, ale nie może być więcej. Jeśli ma być mniej, to można zakomentować lub usunąc niepotrzebne właściwosci (np. s7, s8).
 
-#### Zadanie
-1. Zapisanie losowej tablicy danych do istniejącego źródła.
-2. Losowa tablica jest generowana w pamięci (czas tej operacji jest znikomy)
-3. Wklejana jest cała tablica 1:1.
-4. Zakres docelowego arkusza jest równy wymiarowi danych - nie są dodawane nowe wiersze ani kolumny"
+- **Struktura arkuszy** określona w sekcji 'results'. Są to najwyższe właściwości w tym obiekcie. Sa możliwe obecnie 4:
+	- **Local (loc)** - arkusze na których operuje eksperyment są osadzone w tym samym arkuszu do skrypt (bound)
+	- **Hub (hub)** - arkusze są osadzone w jednym zewnętrznym pliku
+	- **External (ext)** - każdy arkusz sampla (jeden) jest osadzony w zewnętrznym pliku
+	- **Cache (cache)** - dane (sample) są osadzone w cachu (na tym etapie cachu skryptu).
 
+	Jeśli ma być mniej opcji struktur, to można usunąc lub zakomentować nieużywane (np. hub)
 
-#### Próbki
-Arkusze o 15 kolumnach, o różnej liczbie wierszy: od 100 do 16 000
+- **Warianty** - czyli różne opcje testowanej funkcji. System pozwala na 6 różnych opcji - wyniki trafiają do innych arkuszy w plikach wynikach (generycznie nazywające się A, B... F). Ich znaczenie definiuje się we właściwosć **sheetsMeaning** dla każdej możliwej opcji struktury.
 
-#### Warianty
-1. Arkusze osadzone w pliku z którego jest uruchamiany skrypt
-2. Arkusze w odzielnych plikach (zawierające tylko dane testowane)
-3. Arkusze (dane) osadzone w cach'ach"
+#### Podgląd templatu + testy:
+Podgląd testowych danych i testowanie zmian w templacie: https://drive.google.com/drive/folders/1yE3QKd1u21dSd9-KrPcjBJRKjnIHl2J3
 
-#### Plik
-Adres pliku z czasami i wykresami: https://docs.google.com/spreadsheets/d/1qV5DkLLS2XcZC2Oc3QsikbOtsA41N2PNBKyZghWbytY/edit#gid=252400475
+#### Użycie:
+Do każdego testu należy zbudować nowy sktypt i całą strukturę danych. Zatem najłatiwej przekopiować dane z tego tempatu jako nowy skrypt i je zmodyfikować

@@ -1,7 +1,10 @@
+/* eslint-disable max-lines-per-function */
+/* eslint-disable max-lines */
 /* eslint-disable max-params */
 /**
  * @typedef {import('../../GAS | Library/v02/experiments/types').ExpSheet} ExpSheet
  * @typedef {import('../../GAS | Library/v02/experiments/types').ExpTasks} ExpTasks
+ * @typedef {import('../../GAS | Library/v02/gas/styleSheet').RangeOptions} RangeOptions
  */
 
 import { setMenu } from '../../GAS | Library/v02/gas/setMenu';
@@ -125,17 +128,17 @@ global.exp = {
 		['loc', setToSheet('loc', 'full'), 'c'],
 		['loc', setToSheet('loc', 'native'), 'd'],
 	]),
-	ext: go([
-		['ext', setToSheet('ext', 'nothing'), 'a'],
-		['ext', setToSheet('ext', 'default'), 'b'],
-		['ext', setToSheet('ext', 'full'), 'c'],
-		['ext', setToSheet('ext', 'native'), 'd'],
-	]),
 	hub: go([
 		['hub', setToSheet('hub', 'nothing'), 'a'],
 		['hub', setToSheet('hub', 'default'), 'b'],
 		['hub', setToSheet('hub', 'full'), 'c'],
 		['hub', setToSheet('hub', 'native'), 'd'],
+	]),
+	ext: go([
+		['ext', setToSheet('ext', 'nothing'), 'a'],
+		['ext', setToSheet('ext', 'default'), 'b'],
+		['ext', setToSheet('ext', 'full'), 'c'],
+		['ext', setToSheet('ext', 'native'), 'd'],
 	]),
 	// Zadania dla casha odpytywanego co 1, 15 i 30 min
 	cacheA: go([['cache', setToCache('va'), 'a']]),
@@ -149,8 +152,8 @@ global.utils = {
 	buildStructure: () => buildStructure(EXP_SETUP),
 	triggersFire: () => {
 		setEveryMin('exp.loc', 1);
-		setEveryMin('exp.ext', 1);
 		setEveryMin('exp.hub', 1);
+		setEveryMin('exp.ext', 1);
 		setEveryMin('exp.cacheA', 1);
 		setEveryMin('exp.cacheB', 15);
 		setEveryMin('exp.cacheC', 30);
@@ -161,9 +164,8 @@ global.utils = {
 
 const menuElements = [
 	['Zbuduj strukturę plików', 'utils.buildStructure'],
-	'------------------',
 	[
-		'Test funkcji',
+		'Przetestuj funkcje',
 		['Test : randomLocal', 'exp.loc'],
 		['Test : randomHub', 'exp.hub'],
 		['Test : randomExternal', 'exp.ext'],
@@ -173,9 +175,9 @@ const menuElements = [
 		['Test : randomCache 30 min', 'exp.cacheC'],
 		['Test : randomCache 1h', 'exp.cacheD'],
 	],
-	'------------------',
-	['Uruchom triggery', 'utils.triggersFire'],
-	['Zatrzymaj triggery', 'utils.triggersStop'],
+	'-------------------',
+	['Uruchom eksperyment', 'utils.triggersFire'],
+	['Zatrzymaj eksperyment', 'utils.triggersStop'],
 	'-------------------',
 	['Update menu', 'onOpen'],
 ];
