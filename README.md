@@ -21,3 +21,11 @@ Podgląd testowych danych i testowanie zmian w templacie: https://drive.google.c
 
 #### Użycie:
 Do każdego testu należy zbudować nowy sktypt i całą strukturę danych. Zatem najłatiwej przekopiować dane z tego tempatu jako nowy skrypt i je zmodyfikować
+
+*****************
+## Sekcja która powinna zostać w readme po przekopionau do oryginalnego eksperymentu:
+
+### Dane:
+url:
+
+### Opis eksperymentu

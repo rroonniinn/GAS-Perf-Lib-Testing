@@ -163,7 +163,7 @@ global.utils = {
 };
 
 const menuElements = [
-	['Zbuduj strukturę plików', 'utils.buildStructure'],
+	['Zbuduj / zresetuj strukturę plików', 'utils.buildStructure'],
 	[
 		'Przetestuj funkcje',
 		['Test : randomLocal', 'exp.loc'],
