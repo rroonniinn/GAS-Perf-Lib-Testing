@@ -87,7 +87,7 @@ const getOptions = ver => {
  * Zapisz losowe dane dane do wskazanego źródła i wskazanego arkusza
  * @param {'ext'|'loc'|'hub'} geo Strukura danych do pobrania
  * @param {'default'|'full'|'nothing'|'native'} ver Wersja opcji - default - domyślna, full - dodane sortowanie do domyślej, nothing - tylko wkleja
- * @return {(target: ExpSheet) => function} target Np. target1 czy target2
+ * @return {(target: ExpSheet) => any} target Np. target1 czy target2
  */
 const setToSheet = (geo, ver) => target => {
 	const data = randomIntegersArray2d(target.size, 15);
@@ -99,7 +99,7 @@ const setToSheet = (geo, ver) => target => {
 				? paste(sheet, 'A1', data, getOptions(ver))
 				: pasteNative(data),
 		() => printInfo(geo, ver, target.printName)
-	);
+	)();
 };
 
 /**
