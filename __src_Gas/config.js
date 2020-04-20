@@ -99,6 +99,7 @@ const EXP_SETUP = {
 		dataFolder: '_Pliki',
 		externalsSheetName: 'Dane',
 		externalsPrefix: 'file',
+		scriptFileSufix: 'Skrypt + Local',
 		hubName: 'externalHub',
 		dashboardName: 'Dashboard',
 		dashboardMainSheet: 'Dashboard',
